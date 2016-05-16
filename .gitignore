@@ -5,9 +5,7 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 /config/secrets.yml
-secrets.yml
-config/secrets.yml
-./config/secrets.yml
+
 
 # Ignore bundler config.
 /.bundle
