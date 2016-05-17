@@ -12,6 +12,7 @@ gem 'httparty'
 gem 'rspotify'
 gem 'yelp'
 gem 'simplecov'
+gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do

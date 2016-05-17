@@ -1,1 +1,7 @@
 <h1>Something is working</h1>
+
+<%= form_tag search_path do %>
+<%= label_tag(:term) %>
+<%= text_field_tag(:term) %>
+<%= submit_tag("Search") %>
+<% end %>
