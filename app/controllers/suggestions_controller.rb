@@ -6,8 +6,8 @@ class SuggestionsController < ApplicationController
 	end
 
 	def show
-		@suggestions = TunesTakeoutWrapper.search(params[:term])	
-		
+		results = TunesTakeoutWrapper.search(params[:term])
+		@music = Music.get_music(results)
 	end
 
 end

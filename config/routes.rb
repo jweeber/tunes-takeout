@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   
-  root "suggestions#index"
+  root 'suggestions#index'
+  post '/suggestions' => 'suggestions#show', as: 'search'
 
-  post "/suggestions" => "suggestions#show", as: "search"
-
-  get "/auth/:provider/callback" => "sessions#create"
-  delete '/logout' => "sessions#destroy", as: 'logout'
+  get '/auth/:provider/callback' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy', as: 'logout'
 end

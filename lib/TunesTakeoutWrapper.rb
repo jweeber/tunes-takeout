@@ -6,7 +6,7 @@ module TunesTakeoutWrapper
 	# attr_reader :name, :moves, :sprites
 
 	def self.search(term)
-		@data = HTTParty.get(BASE_URL + "/v1/suggestions/search?query=#{term}").parsed_response
+		@data = HTTParty.get(BASE_URL + "/v1/suggestions/search?query=#{term}&limit=20").parsed_response	
 	end
 
 	# private
