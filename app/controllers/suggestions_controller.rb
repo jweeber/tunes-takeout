@@ -15,4 +15,16 @@ class SuggestionsController < ApplicationController
 		@food = Food.get_food(results)
 	end
 
+	def favorites
+		
+	end
+
+	def favorite
+		
+	end
+
+	def unfavorite
+		
+	end
+
 end
