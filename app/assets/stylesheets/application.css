@@ -14,15 +14,12 @@
  *= require_self
  */
 
+
 .music-food {
-/*  position: relative;
-  top: 50%;
-*/  transform: translateY(20%);
+ transform: translateY(20%);
 }
 
-
-
-img {
+.food-img {
 	border-radius: 25%;
 	height: 150px;
 	width: 150px;
@@ -30,4 +27,42 @@ img {
 
 a {
 	text-decoration: none;
+}
+
+header {
+	height: 100px;
+	width: 100%;
+	padding: 1% 2% 0 2%;
+}
+
+ul.nav-top li {
+	display: inline;
+	padding-right: 30px;
+	list-style: none;
+
+}
+
+li.logged-in {
+	padding-top: 10px;
+}
+
+div.header {
+	float: right;
+	display: inline;
+	padding-right: 8%;
+	font-weight: bolder;
+	font-size: 25px;
+}
+
+.logo {
+	height: 50px;
+	width: 50px;
+}
+
+p.header-spotify {
+	font-size: 16px;
+	font-style: italic;
+	margin-top: 2%;
+	padding-left: 5%;
+	color: green;
 }

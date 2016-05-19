@@ -4,7 +4,7 @@ require 'rspotify'
 class Music
 
 	def self.get_music(results)
-		results["suggestions"].map do |item| 
+		results.map do |item| 
 	 		if item["music_type"] == "artist" 
 				RSpotify::Artist.find(item["music_id"])
 			elsif item["music_type"] == "album" 

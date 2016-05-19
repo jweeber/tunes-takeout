@@ -1,9 +1,11 @@
-<h1>Something is working</h1>
-
-<%= form_tag search_path do %>
-<%= label_tag(:term) %>
-<%= text_field_tag(:term) %>
-<%= submit_tag("Search") %>
+<% if current_user %>
+	<h3>Enter a word or phrase to get a pairing!</h3>
+		<%= form_tag search_path do %>
+			<%= label_tag(:"Word/Phrase:") %>
+			<%= text_field_tag(:term) %>
+			<%= submit_tag("Search") %>
+		<% end %>
 <% end %>
 
-<%= render "shared/suggestion" %>
+<h3>Top 20 Pairings!</h3>
+<%= render 'shared/suggestion' %>
