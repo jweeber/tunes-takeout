@@ -1,7 +1,7 @@
 require_relative '../../lib/TunesTakeoutWrapper'
 
 class SuggestionsController < ApplicationController
-	before_action :require_login, only: [:show]
+	# before_action :require_login, only: [:show]
 
 	def index
 		results = TunesTakeoutWrapper.top_suggestions

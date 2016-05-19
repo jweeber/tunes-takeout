@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 	validates :uid, presence: true
 
 	def self.find_or_create_from_omniauth(auth_hash)
-    user = self.find_by(uid: auth_hash["uid"], provider: auth_hash["provider"], name: auth_hash["display_name"])
+    user = self.find_by(uid: auth_hash["uid"], provider: auth_hash["provider"])
     if !user.nil?
       return user
     else
@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
       user.uid = auth_hash["uid"]
       user.provider = auth_hash["provider"]
       user.name = auth_hash["info"]["name"]
+      user.image_url = auth_hash["info"]["image"]
       user.save
       if user.save
         return user

@@ -12,9 +12,12 @@
 <nav>
 <div class="header">
 <ul class="nav nav-pills nav-top">
-
 	<li class="logged-in"><%= "Hi #{current_user.name}!" if current_user %></li>
-	<%= image_tag 'spotify_logo', class: "logo" %>
+	<% if current_user && current_user.image_url != nil %>
+		<%= image_tag current_user.image_url, class: "logo" %>
+	<% else %>
+		<%= image_tag 'spotify_logo', class: "logo" %>
+	<% end %>
 	<li><%= link_to 'Log Out', logout_path, method: :delete if current_user %></li>
 	<li><%= link_to 'Log In / Sign Up', '/auth/spotify' unless current_user %></li>
 	<% if !current_user %>
