@@ -16,7 +16,13 @@ class SuggestionsController < ApplicationController
 	end
 
 	def favorites
+		status_code = TunesTakeoutWrapper.add_favorite(current_user.uid, params[:suggestion_id])
 		
+		if status_code == 201
+			@message = "Yay"
+		else
+			@message = "No"
+		end
 	end
 
 	def favorite
