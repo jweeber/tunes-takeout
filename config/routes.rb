@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   post '/suggestions' => 'suggestions#show', as: 'search'
 
   # get '/:user_id/favorites' => 'suggestions#favorites', as: 'favorites'
-  post '/suggestions/:id/favorite' => 'suggestions#favorite', as: 'favorite'
+	post '/suggestions/:id/favorite' => 'suggestions#favorite', as: 'favorite'
+	delete '/suggestions/:id/favorite' => 'suggestions#unfavorite'
 
   get '/auth/:provider/callback' => 'sessions#create'
   delete '/logout' => 'sessions#destroy', as: 'logout'

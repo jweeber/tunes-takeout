@@ -29,11 +29,16 @@ class TunesTakeoutWrapper
 	end
 
 	def self.add_favorite(uid, suggestion_id)
-		# raise
 		response = HTTParty.post(BASE_URL + "/v1/users/#{uid}/favorites", 
     :body => { "suggestion": "#{suggestion_id}" }.to_json,
-    :headers => {"Content-Type" => "application/json"})	
-    # raise
+    :headers => {"Content-Type" => "application/json" } )	
+    return response.code
+	end
+
+	def self.delete_favorite(uid, suggestion_id)
+		response = HTTParty.delete(BASE_URL + "/v1/users/#{uid}/favorites", 
+    :body => { "suggestion": "#{suggestion_id}" }.to_json,
+    :headers => { "Content-Type" => "application/json" } )	
     return response.code
 	end
 
