@@ -7,6 +7,8 @@ class SuggestionsController < ApplicationController
 		results = TunesTakeoutWrapper.top_suggestions
 		@music = Music.get_music(results)
 		@food = Food.get_food(results)
+		@results = results
+		# raise
 	end
 
 	def show
@@ -16,17 +18,18 @@ class SuggestionsController < ApplicationController
 	end
 
 	def favorites
-		status_code = TunesTakeoutWrapper.add_favorite(current_user.uid, params[:suggestion_id])
+
+	end
+
+	def favorite
+		status_code = TunesTakeoutWrapper.add_favorite(current_user.uid, params[:id])
 		
 		if status_code == 201
 			@message = "Yay"
 		else
 			@message = "No"
 		end
-	end
 
-	def favorite
-		
 	end
 
 	def unfavorite

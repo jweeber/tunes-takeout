@@ -19,10 +19,8 @@ class TunesTakeoutWrapper
 		one_result = []
 		top_array.each do |result|
 			one_result << result["suggestion"]
-			# raise
 		end
 		return one_result
-		self.new(top_array)
 	end
 
 	def self.search(term)
@@ -30,10 +28,12 @@ class TunesTakeoutWrapper
 		self.new(data)
 	end
 
-	def self.add_favorite(uid, @suggestion_id)
+	def self.add_favorite(uid, suggestion_id)
+		# raise
+		response = HTTParty.post(BASE_URL + "/v1/users/#{uid}/favorites", 
+    :body => { "suggestion": "#{suggestion_id}" }.to_json,
+    :headers => {"Content-Type" => "application/json"})	
     # raise
-		response = HTTParty.post(BASE_URL + "/v1/suggestions/#{uid}/favorites", 
-    :body => { "suggestion": "#{@suggestion_id}" }.to_json)	
     return response.code
 	end
 

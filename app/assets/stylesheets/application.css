@@ -16,7 +16,11 @@
 
 
 .music-food {
- transform: translateY(20%);
+ 	transform: translateY(20%);
+}
+
+.fav-button {
+	transform: translateY(150%);
 }
 
 .food-img {

@@ -1,11 +1,13 @@
 <div class="container">
 		<% @music.each_with_index do |tune, index| %>
 			<div class="row">
-				<div class="col-md-6 music-food">
-					<iframe src="https://embed.spotify.com/?uri=<%= tune.uri %>" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+				<div class="col-md-1 fav-button">
 					<% if current_user %>
-					    <%= link_to "⭐️", favorites_path(current_user.uid), method: :post, class: "btn btn-primary" %>
-					<% end %><br>
+					    <%= link_to "⭐️", favorite_path(@results[index]["id"]), method: :post, class: "btn btn-primary btn-lg" %>
+					<% end %>
+					</div>
+				<div class="col-md-5 music-food">
+					<iframe src="https://embed.spotify.com/?uri=<%= tune.uri %>" width="300" height="80" frameborder="0" allowtransparency="true"></iframe><br>
 					<%= link_to tune.name, tune.external_urls["spotify"] %><br>
 					<%= tune.type.capitalize %><br>
 				</div>
