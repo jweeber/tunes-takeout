@@ -7,7 +7,6 @@ class SuggestionsController < ApplicationController
 		@results = TunesTakeoutWrapper.top_suggestions
 		@music = Music.get_music(@results)
 		@food = Food.get_food(@results)
-		# raise
 		@favorites = TunesTakeoutWrapper.get_favorite_ids(current_user.uid)
 	end
 
