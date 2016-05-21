@@ -36,8 +36,12 @@ class TunesTakeoutWrapper
     return response.code
 	end
 
-	def self.get_favorites(uid)
-		favorite_list = HTTParty.get(BASE_URL + "/users/#{uid}/favorites").parsed_response["suggestions"]	
+	def self.get_favorite_ids(uid)
+		HTTParty.get(BASE_URL + "/users/#{uid}/favorites").parsed_response["suggestions"]	
+	end
+
+	def self.user_favorites(uid)
+		favorite_list = self.get_favorite_ids(uid)
 		suggestion_hashes = []
 		favorite_list.each do |suggestion_id|
 			suggestion_hashes << self.get_suggestion(suggestion_id)

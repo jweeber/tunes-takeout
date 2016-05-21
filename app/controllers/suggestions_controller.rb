@@ -8,30 +8,31 @@ class SuggestionsController < ApplicationController
 		@music = Music.get_music(@results)
 		@food = Food.get_food(@results)
 		# raise
-		@favorites = TunesTakeoutWrapper.get_favorites(current_user.uid)
+		@favorites = TunesTakeoutWrapper.get_favorite_ids(current_user.uid)
 	end
 
 	def show
 		@results = TunesTakeoutWrapper.search(params[:term])
 		@music = Music.get_music(@results)
 		@food = Food.get_food(@results)
-		@favorites = TunesTakeoutWrapper.get_favorites(current_user.uid)
+		@favorites = TunesTakeoutWrapper.get_favorite_ids(current_user.uid)
 	end
 
 	def favorites
-		@favorites = TunesTakeoutWrapper.get_favorites(current_user.uid)
+		@results = TunesTakeoutWrapper.user_favorites(current_user.uid)
 		@music = Music.get_music(@results)
 		@food = Food.get_food(@results)
+		@favorites = TunesTakeoutWrapper.get_favorite_ids(current_user.uid)
 	end
 
 	def favorite
 		status_code = TunesTakeoutWrapper.add_favorite(current_user.uid, params[:id])
-		redirect_to root_path
+		redirect_to favorites_path(current_user.uid)
 	end
 
 	def unfavorite
 		status_code = TunesTakeoutWrapper.delete_favorite(current_user.uid, params[:id])
-		redirect_to root_path
+		redirect_to favorites_path(current_user.uid)
 	end
 
 end
