@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start 'rails'
+
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
@@ -15,6 +18,8 @@ end
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 MinitestVcr::Spec.configure!
+
+
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.

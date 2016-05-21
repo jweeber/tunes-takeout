@@ -3,31 +3,23 @@ require 'httparty'
 class TunesTakeoutWrapper
 	BASE_URL = "https://tunes-takeout-api.herokuapp.com/v1"
 
-	# attr_reader :music_id, :music_type, :suggestion_id, :food_id
-
-	def initialize(data)
-		@suggestion_id = data["id"]
-		@music_id = data["music_id"]
-		@music_type = data["music_type"]
-		@food_id = data["food_id"]
+	def self.get_suggestion(suggestion_id)
+		HTTParty.get(BASE_URL + "/suggestions/" + "#{suggestion_id}").parsed_response["suggestion"]
 	end
 	
 	def self.top_suggestions
-		top_array = []
-		data = HTTParty.get(BASE_URL + "/suggestions/top").parsed_response["suggestions"]		
-		data.each do |suggestion|
-			top_array << HTTParty.get(BASE_URL + "/suggestions/" + "#{suggestion}")
+		# request API to give suggestion ids
+		data = HTTParty.get(BASE_URL + "/suggestions/top").parsed_response["suggestions"]
+		# loop through ids, request suggestion data - music id, food id, music type	
+		suggestion_hashes = []
+		data.each do |suggestion_id|
+			suggestion_hashes << self.get_suggestion(suggestion_id)
 		end
-		one_result = []
-		top_array.each do |result|
-			one_result << result["suggestion"]
-		end
-		return one_result
+		return suggestion_hashes
 	end
 
 	def self.search(term)
-		data = HTTParty.get(BASE_URL + "/suggestions/search?query=#{term}").parsed_response	
-		self.new(data)
+		data = HTTParty.get(BASE_URL + "/suggestions/search?query=#{term}").parsed_response["suggestions"]
 	end
 
 	def self.add_favorite(uid, suggestion_id)
@@ -42,6 +34,15 @@ class TunesTakeoutWrapper
     :body => { "suggestion": "#{suggestion_id}" }.to_json,
     :headers => { "Content-Type" => "application/json" } )	
     return response.code
+	end
+
+	def self.get_favorites(uid)
+		favorite_list = HTTParty.get(BASE_URL + "/users/#{uid}/favorites").parsed_response["suggestions"]	
+		suggestion_hashes = []
+		favorite_list.each do |suggestion_id|
+			suggestion_hashes << self.get_suggestion(suggestion_id)
+		end
+		return suggestion_hashes
 	end
 
 end
