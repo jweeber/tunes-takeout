@@ -47,10 +47,7 @@ class TunesTakeoutWrapperTest < ActiveSupport::TestCase
 
         assert_equal second_favorites, (first_favorites - 1)
       end
-
+      
     end
-
-
   end
-
 end

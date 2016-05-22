@@ -7,7 +7,9 @@ class Music < ActiveSupport::TestCase
   # describe "API" do
   #   describe "Album" do
   #     before do
-  #       results = {"id"=>"Vz0KNY-RRwADbn2k", "food_id"=>"ohana-seattle-2", "music_id"=>"0DeXBSPxuMGmgT1MSrzXe2", "music_type"=>"album"}
+  #       results = {""food_id":"avocados-mexican-restaurant-everett",
+      #{}"music_id":"0s2PZZynA0W2Z8iHnRZS48",
+      #{}"music_type":"track"}
   #       @banana_album = Music.get_music(results)
   #     end
 
