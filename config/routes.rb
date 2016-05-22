@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   
   root 'suggestions#index'
 
-  get '/suggestions/:term' => 'suggestions#show', as: 'search'
-  post '/suggestions/:term' => 'suggestions#show'
+  # get '/suggestions/:term' => 'suggestions#show'
+  post '/suggestions' => 'suggestions#show', as: 'search'
 
   get '/:user_id/favorites' => 'suggestions#favorites', as: 'favorites'
 

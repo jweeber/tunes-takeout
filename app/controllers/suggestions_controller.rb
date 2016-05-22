@@ -7,14 +7,18 @@ class SuggestionsController < ApplicationController
 		@results = TunesTakeoutWrapper.top_suggestions
 		@music = Music.get_music(@results)
 		@food = Food.get_food(@results)
-		@favorites = TunesTakeoutWrapper.get_favorite_ids(current_user.uid)
+		if current_user
+			@favorites = TunesTakeoutWrapper.get_favorite_ids(current_user.uid)
+		end
 	end
 
 	def show
 		@results = TunesTakeoutWrapper.search(params[:term])
 		@music = Music.get_music(@results)
 		@food = Food.get_food(@results)
-		@favorites = TunesTakeoutWrapper.get_favorite_ids(current_user.uid)
+		if current_user
+			@favorites = TunesTakeoutWrapper.get_favorite_ids(current_user.uid)
+		end
 	end
 
 	def favorites

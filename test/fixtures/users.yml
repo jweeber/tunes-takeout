@@ -1,5 +1,5 @@
-first_user:
-  uid: "person_one"
-  name: "Person One"
+known_user:
+  uid: "known_user"
+  name: "known user"
   provider: "spotify"
   image_url: "http//cats.com"

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Music < ActiveSupport::TestCase
 
-describe Music do
+  # describe Music do
 
   # describe "API" do
   #   describe "Album" do
@@ -16,6 +16,6 @@ describe Music do
   #     end
   #   end
   # end
-end
+   # end
 
 end

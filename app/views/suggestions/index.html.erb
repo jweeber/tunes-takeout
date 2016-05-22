@@ -1,9 +1,8 @@
 <% if current_user %>
 	<h3>Enter a word or phrase to get a pairing!</h3>
-		<%= form_for search_path(params[:term]), method: :post do |f| %>
-			<%= f.label(:"Word/Phrase:") %>
-			<%= f.text_field(:term) %>
-			<%= f.submit("Search") %>
+		<%= form_tag search_path do %>
+ 			<%= text_field_tag(:term) %>
+ 			<%= submit_tag("Search") %>
 		<% end %>
 <% end %>
 
