@@ -13,7 +13,7 @@
 <nav>
 <div class="header">
 <ul class="nav nav-pills nav-top">
-	<li class="logged-in"><%= "Hi #{current_user.name}!" if current_user %></li>
+	<li class="logged-in"><%= link_to "#{current_user.name}", "https://open.spotify.com/user/#{current_user.profile_url}" if current_user %>"</li>
 	<% if current_user && current_user.image_url != nil %>
 		<li><%= image_tag current_user.image_url, class: "logo" %></li>
 	<% else %>
