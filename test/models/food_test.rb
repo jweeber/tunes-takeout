@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Music < ActiveSupport::TestCase
+class FoodTest < ActiveSupport::TestCase
 
 	describe Food do 
 

@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.spotify.com/v1/artists/2KVkJsyOoELcQQNzC9ajLJ
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 22 May 2016 21:18:18 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=600
+      Cache-Control:
+      - public, max-age=7200
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, POST, OPTIONS, PUT, DELETE
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '604800'
+      Access-Control-Allow-Headers:
+      - Accept, Authorization, Origin, Content-Type
+      Content-Encoding:
+      - gzip
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAIySMW+DMBCF9/4KxNApCmCDMaxRO6RRqyxdqqo64yPQEEDG
+        NE2j/veCIVGjNFVGP9+97/l8+xvLsvFToyqheGtV0dhWbO07tdObutJ5uusV
+        O9O6bmLHqWosp+PFNKk2DiidN9ohD8/rebN7qu4WyXL5+DWL4H0xtzuj70nP
+        SKuiqLaofvtnCtP+WLZFMRkkXWkoeo0eO1dYKjRtL9arUQ59x1BQ5yeZPrwx
+        VnMpl/HJpXH5t2QDqwP8kBrzVaZ7ifnuGLsb3EmgLk4iyy6LYwwc4gEHGnGO
+        3A/dUDLu+imEaSBBkFBQTtKECs7s0W+bS52NCDOIczh1r4V7vuCCYSCQQOpT
+        VyQREUA4kS6XQARKITHwojN4h7gAZ/61bE8ICknAGESBRKAoOQuRhoHHQhkw
+        yUPweSD+eHiPHj+8hA0azL2Ccr2zbi2doTXLEBsc/qmu6rYAlWuzrWYytt7V
+        Q9ewC0Nhq3KjjesSD3fxpfX9/gEAAP//AwB+3ztiIQMAAA==
+    http_version: 
+  recorded_at: Sun, 22 May 2016 21:18:18 GMT
+recorded_with: VCR 3.0.2
