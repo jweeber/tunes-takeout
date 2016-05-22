@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
       user.provider = auth_hash["provider"]
       user.name = auth_hash["info"]["name"]
       user.image_url = auth_hash["info"]["image"]
+      user.profile_url = auth_hash["info"]["urls"]["spotify"]
       user.save
       if user.save
         return user
