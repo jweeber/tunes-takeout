@@ -11,7 +11,7 @@ class TunesTakeoutWrapperTest < ActiveSupport::TestCase
 
     describe "API", :vcr do
       before do
-        @suggestion_id = TunesTakeoutWrapper.get_suggestion("Vz0KO4-RRwADbn9c")
+        @suggestion_id = TunesTakeoutWrapper.get_suggestion("Vz0KO4-RRwADbn9t")
         @top_suggestions = TunesTakeoutWrapper.top_suggestions
         @search = TunesTakeoutWrapper.search("honey")
       end
@@ -28,9 +28,25 @@ class TunesTakeoutWrapperTest < ActiveSupport::TestCase
         assert_equal 20, @search.length
       end
 
+      it "can return suggestions that include the search term", :vcr do
+        assert true, @search.include?("honey")
+      end
 
+      it "can add a favorite for a user", :vcr do
+        TunesTakeoutWrapper.add_favorite("testuser1", "Vz0KO4-RRwADbn9f")
+        favorites = TunesTakeoutWrapper.user_favorites("testuser1")
 
+        assert true, favorites.include?("Vz0KO4-RRwADbn9f")
+      end
 
+      it "can remove a favorite for a user", :vcr do
+        TunesTakeoutWrapper.add_favorite("testuser2", "Vz0KO4-RRwADbn9c")
+        first_favorites = TunesTakeoutWrapper.user_favorites("testuser2").count
+        TunesTakeoutWrapper.delete_favorite("testuser2", "Vz0KO4-RRwADbn9c")
+        second_favorites = TunesTakeoutWrapper.user_favorites("testuser2").count
+
+        assert_equal second_favorites, (first_favorites - 1)
+      end
 
     end
 

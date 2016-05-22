@@ -8,18 +8,16 @@ class TunesTakeoutWrapper
 	end
 	
 	def self.top_suggestions
-		# request API to give suggestion ids
-		data = HTTParty.get(BASE_URL + "/suggestions/top").parsed_response["suggestions"]
-		# loop through ids, request suggestion data - music id, food id, music type	
+		top_twenty = HTTParty.get(BASE_URL + "/suggestions/top").parsed_response["suggestions"]
 		suggestion_hashes = []
-		data.each do |suggestion_id|
+		top_twenty.each do |suggestion_id|
 			suggestion_hashes << self.get_suggestion(suggestion_id)
 		end
 		return suggestion_hashes
 	end
 
 	def self.search(term)
-		data = HTTParty.get(BASE_URL + "/suggestions/search?query=#{term}").parsed_response["suggestions"]
+		HTTParty.get(BASE_URL + "/suggestions/search?query=#{term}").parsed_response["suggestions"]
 	end
 
 	def self.add_favorite(uid, suggestion_id)
