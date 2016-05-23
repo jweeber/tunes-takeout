@@ -1,10 +1,12 @@
+<div class="search-form">
 <% if current_user %>
-	<h3 class="sub-headings">Enter a word or phrase to get a pairing!</h3>
+	<h3 class="sub-headings">Enter a food word to see pairings!</h3>
 		<%= form_tag search_path do %>
- 			<%= text_field_tag(:term, class: "search-form") %>
- 			<%= submit_tag("Search", class: "btn btn-info btn-lg") %>
+ 			<%= text_field_tag(:term) %>
+ 			<%= submit_tag("show me the tunes!", class: "btn btn-info btn-lg") %>
 		<% end %>
 <% end %>
+</div>
 
 <h3 class="sub-headings">Top 20 Pairings!</h3>
 <%= render 'shared/suggestion' %>

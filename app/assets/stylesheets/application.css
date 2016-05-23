@@ -16,7 +16,7 @@
 
 * {
 	font-family: 'The Girl Next Door', cursive;
-	letter-spacing: 2px; 
+	letter-spacing: 1.5px; 
 	color: #ffffff;
 }
 
@@ -84,8 +84,9 @@ h1.title {
 
 .body-links {
 	text-decoration: none;
-	font-size: 20px;
+	font-size: 16px;
 	color: #2eb82e;
+	font-weight: bold;
 }
 
 
@@ -94,14 +95,14 @@ h1.title {
 }
 
 header {
-	height: 140px;
+	height: 130px;
 	width: 100%;
 	padding: 1% 2% 0 2%;
 }
 
 ul.nav-top li {
 	display: inline;
-	padding-right: 10px;
+	padding-right: 5px;
 	list-style: none;
 	font-size: 18px;
 	font-weight: bold;
@@ -116,7 +117,7 @@ div.header {
 	float: right;
 	display: inline;
 	margin-top: 2%;
-	padding-right: 8%;
+	padding-right: 1%;
 	font-weight: bolder;
 	font-size: 15px;
 }
@@ -143,6 +144,16 @@ p.header-spotify {
 }
 
 .search-form {
-	
+	text-align: center;
+}
+
+input[type="text"] {
+  height: 4em;
+  width: 20em;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-style: solid;
+  color: #000000;
+ 	text-align: center;
 }
 

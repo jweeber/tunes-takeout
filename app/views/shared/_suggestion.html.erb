@@ -10,18 +10,18 @@
 			<% end %>
 			<% end %>
 		</div>
-		<div class="col-md-5 music-food">
+		<div class="col-md-7 music-food">
 			<iframe src="https://embed.spotify.com/?uri=<%= tune.uri %>" width="300" height="80" frameborder="0" allowtransparency="true"></iframe><br>
 			<%= link_to tune.name, tune.external_urls["spotify"], class: "body-links" %><br>
 			<%= tune.type.capitalize %><br>
 		</div>
-		<div class="col-md-3 music-food">
+		<div class="col-md-2 music-food">
 			<% nom = @food[index] %>
 			<%= link_to nom.name, nom.url, class: "body-links" %><br>
 			<%= nom.location.display_address.join(" ") %><br>
 			P: <%= nom.display_phone %><br>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-2">
 			<%= image_tag nom.image_url, class: "food-img" %><br>
 		</div>
 	</div>
