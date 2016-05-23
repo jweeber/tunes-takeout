@@ -5,15 +5,25 @@
 	<%= stylesheet_link_tag    'application', media: 'all' %>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Rock+Salt|The+Girl+Next+Door' rel='stylesheet' type='text/css'>
 	<%= javascript_include_tag 'application' %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
 	<header>
+			<%= image_tag 'coffee-art', class: "brand-img" %>
+		<div class="brand">
+			<h1 class="title">food tunes</h1>
+			<p>music + seattle food pairings</p>
+		</div>
 		<nav>
 			<div class="header">
 				<ul class="nav nav-pills nav-top">
 					<li class="logged-in"><%= link_to "#{current_user.name}", current_user.profile_url if current_user %></li>
+					<li><%= link_to "Home", root_path %></li>
+					<li><%= link_to 'Log In / Sign Up', '/auth/spotify' unless current_user %></li>
+					<li><%= link_to 'Your Favorites', favorites_path(current_user.uid) if current_user %></li>
+					<li><%= link_to 'Log Out', logout_path, method: :delete if current_user %></li>
 					<% if current_user && current_user.image_url != nil %>
 						<li><%= link_to current_user.profile_url do %>
 								<%= image_tag current_user.image_url, class: "logo" %></li>
@@ -21,10 +31,6 @@
 					<% else %>
 					<li><%= image_tag 'spotify_logo', class: "logo" %></li>
 					<% end %>
-					<li><%= link_to "Home", root_path %></li>
-					<li><%= link_to 'Your Favorites', favorites_path(current_user.uid) if current_user %></li>
-					<li><%= link_to 'Log Out', logout_path, method: :delete if current_user %></li>
-					<li><%= link_to 'Log In / Sign Up', '/auth/spotify' unless current_user %></li>
 				</ul>
 			</div>
 		</nav>

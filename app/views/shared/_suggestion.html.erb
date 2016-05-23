@@ -1,30 +1,30 @@
 <div class="container">
-		<% @music.each_with_index do |tune, index| %>
-			<div class="row">
-				<div class="col-md-1 fav-button">
-					<% if current_user %>
-					   <% if @favorites.include?(@results[index]["id"]) %>
-					   		<%= link_to "Unfave it!", favorite_path(@results[index]["id"]), method: :delete, class: "btn btn-danger" %>
-					   <% else %>
-					   	 <%= link_to "Fave it!", favorite_path(@results[index]["id"]), method: :post, class: "btn btn-primary" %>
-					   <% end %>
-					<% end %>
-					</div>
-				<div class="col-md-5 music-food">
-					<iframe src="https://embed.spotify.com/?uri=<%= tune.uri %>" width="300" height="80" frameborder="0" allowtransparency="true"></iframe><br>
-					<%= link_to tune.name, tune.external_urls["spotify"] %><br>
-					<%= tune.type.capitalize %><br>
-				</div>
-				<div class="col-md-3 music-food">
-					<% nom = @food[index] %>
-					<%= link_to nom.name, nom.url %><br>
-					<%= nom.location.display_address.join(" ") %><br>
-					P: <%= nom.display_phone %><br>
-				</div>
-				<div class="col-md-3">
-					<%= image_tag nom.image_url, class: "food-img" %><br>
-				</div>
-			</div>
-			<hr>
-		<% end %>
+	<% @music.each_with_index do |tune, index| %>
+	<div class="row pairing">
+		<div class="col-md-1 fav-button">
+			<% if current_user %>
+			<% if @favorites.include?(@results[index]["id"]) %>
+			<%= link_to "Unfave!", favorite_path(@results[index]["id"]), method: :delete, class: "btn btn-danger" %>
+			<% else %>
+			<%= link_to "Fave!", favorite_path(@results[index]["id"]), method: :post, class: "btn btn-primary" %>
+			<% end %>
+			<% end %>
+		</div>
+		<div class="col-md-5 music-food">
+			<iframe src="https://embed.spotify.com/?uri=<%= tune.uri %>" width="300" height="80" frameborder="0" allowtransparency="true"></iframe><br>
+			<%= link_to tune.name, tune.external_urls["spotify"], class: "body-links" %><br>
+			<%= tune.type.capitalize %><br>
+		</div>
+		<div class="col-md-3 music-food">
+			<% nom = @food[index] %>
+			<%= link_to nom.name, nom.url, class: "body-links" %><br>
+			<%= nom.location.display_address.join(" ") %><br>
+			P: <%= nom.display_phone %><br>
+		</div>
+		<div class="col-md-3">
+			<%= image_tag nom.image_url, class: "food-img" %><br>
+		</div>
+	</div>
+	<br>
+	<% end %>
 </div>

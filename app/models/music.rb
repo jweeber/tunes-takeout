@@ -1,4 +1,3 @@
-require_relative '../../lib/TunesTakeoutWrapper'
 require 'rspotify'
 
 class Music
@@ -15,7 +14,6 @@ class Music
 				""
 	 		end 
 		end
-
 	end
 
 end

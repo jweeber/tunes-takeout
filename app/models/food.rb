@@ -7,4 +7,5 @@ class Food
 			Yelp.client.business(item["food_id"].parameterize).business
 		end
 	end
+	
 end

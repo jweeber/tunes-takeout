@@ -1,3 +1,3 @@
-<% if @favorites %>
+<% if current_user && @favorites %>
 	<%= render 'shared/suggestion' %>
 <% end %>
