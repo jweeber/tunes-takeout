@@ -11,7 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'httparty'
 gem 'rspotify'
 gem 'yelp'
-gem 'simplecov'
+gem 'simplecov',:require => false, :group => :test
 gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'omniauth-spotify'
 gem 'sdoc', '~> 0.4.0', group: :doc
